@@ -13,7 +13,7 @@
       {{- $target = "target=\"_blank\" rel=\"noopener\"" -}}
     {{- end -}}
     {{- if gt $index 0 }}, {{ end -}}
-    <span>
+    <span {{ if site.Params.highlight_superuser | and (eq $profile_page.Params.superuser true) }}class="font-weight-bold"{{end}}>
       {{- if and $profile_page $link_authors -}}
         <a href="{{$link}}" {{ $target | safeHTMLAttr }}>{{$name}}</a>
       {{- else -}}
